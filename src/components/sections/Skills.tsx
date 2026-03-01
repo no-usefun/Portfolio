@@ -4,7 +4,7 @@ import SectionHeading from "../ui/SectionHeading";
 function Skills() {
   return (
     <>
-      <SectionContainer>
+      <SectionContainer id="Skills">
         <SectionHeading>Skills</SectionHeading>
       </SectionContainer>
     </>

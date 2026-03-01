@@ -1,6 +1,9 @@
 import Button from "../ui/Button";
+import profile from "../../assets/profile.jpeg";
 
 export default function Hero() {
+  const openResume = () => window.open("/resume.pdf", "_blank");
+
   return (
     <section className="relative min-h-screen flex items-center bg-neutral-950 text-white overflow-hidden">
       {/* Radial Glow */}
@@ -9,7 +12,6 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-        {/* Text */}
         <div>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
             Harsh Agarwal
@@ -26,19 +28,20 @@ export default function Hero() {
           </p>
 
           <div className="mt-8 flex gap-4">
-            <Button variant="primary">Explore Projects</Button>
-            <Button variant="outline">View Resume</Button>
+            <Button variant="outline" onClick={openResume}>
+              View Resume
+            </Button>
           </div>
         </div>
 
-        {/* Image */}
         <div className="flex justify-center">
           <div className="relative">
             <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full"></div>
             <img
-              src="/your-image.png"
+              src={profile}
               alt="Harsh"
-              className="relative w-72 h-72 object-cover rounded-full border-4 border-neutral-800"
+              className="relative w-72 h-72 rounded-full border-4 border-neutral-800 object-cover brightness-90 object-[center_-10px]"
+              draggable="false"
             />
           </div>
         </div>

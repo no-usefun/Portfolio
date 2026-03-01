@@ -4,7 +4,7 @@ import SectionHeading from "../ui/SectionHeading";
 function Projects() {
   return (
     <>
-      <SectionContainer>
+      <SectionContainer id="Projects">
         <SectionHeading>Projects</SectionHeading>
       </SectionContainer>
     </>

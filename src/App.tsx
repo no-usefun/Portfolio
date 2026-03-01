@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/layout/Header";
 import ProfessionalPortfolio from "./ProfessionalPortfolio";
 import GamePortfolio from "./GamePortfolio";
 
 function App() {
-  const [mode, setMode] = useState<"professional" | "game">("professional");
+  const [mode, setMode] = useState<"professional" | "interactive">(
+    "interactive",
+  );
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [mode]);
 
   return (
     <div className="bg-neutral-950 text-white min-h-screen">
@@ -12,9 +17,9 @@ function App() {
 
       <main className="pt-16">
         {mode === "professional" ? (
-          <ProfessionalPortfolio />
+          <ProfessionalPortfolio key="professional" />
         ) : (
-          <GamePortfolio />
+          <GamePortfolio key="interactive" />
         )}
       </main>
     </div>

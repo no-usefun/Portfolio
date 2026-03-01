@@ -4,7 +4,7 @@ import SectionHeading from "../ui/SectionHeading";
 function Contact() {
   return (
     <>
-      <SectionContainer>
+      <SectionContainer id="Contact">
         <SectionHeading>Contact</SectionHeading>
       </SectionContainer>
     </>

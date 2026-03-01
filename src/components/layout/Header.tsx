@@ -1,8 +1,8 @@
-import Button from "../ui/Button";
+import ModeToggle from "../ui/ModeToggle";
 
 type HeaderProps = {
-  mode: "professional" | "game";
-  setMode: React.Dispatch<React.SetStateAction<"professional" | "game">>;
+  mode: "professional" | "interactive";
+  setMode: React.Dispatch<React.SetStateAction<"professional" | "interactive">>;
 };
 
 export default function Header({ mode, setMode }: HeaderProps) {
@@ -16,7 +16,7 @@ export default function Header({ mode, setMode }: HeaderProps) {
           Harsh<span className="text-blue-500">.</span>
         </div>
 
-        {/* Nav (hide in game mode if needed later) */}
+        {/* Navigation (ONLY in professional mode) */}
         {isProfessional && (
           <nav className="hidden md:flex gap-8 text-neutral-400 text-sm">
             <a href="#about" className="hover:text-white transition">
@@ -37,13 +37,8 @@ export default function Header({ mode, setMode }: HeaderProps) {
           </nav>
         )}
 
-        {/* Toggle Button */}
-        <Button
-          variant="outline"
-          onClick={() => setMode(isProfessional ? "game" : "professional")}
-        >
-          {isProfessional ? "Game Mode" : "Professional Mode"}
-        </Button>
+        {/* Mode Toggle */}
+        <ModeToggle mode={mode} setMode={setMode} />
       </div>
     </header>
   );

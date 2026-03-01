@@ -4,6 +4,7 @@ import Skills from "./components/sections/Skills";
 import Projects from "./components/sections/Projects";
 import Education from "./components/sections/Education";
 import Contact from "./components/sections/Contact";
+import Consistency from "./components/sections/Consistency";
 
 function ProfessionalPortfolio() {
   return (
@@ -13,6 +14,7 @@ function ProfessionalPortfolio() {
         <About />
         <Skills />
         <Projects />
+        <Consistency />
         <Education />
         <Contact />
       </main>
