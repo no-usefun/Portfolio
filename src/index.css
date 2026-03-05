@@ -28,3 +28,20 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #2563eb #080f1f;
 }
+
+@keyframes skills-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.skills-scroll {
+  animation: skills-scroll 35s linear infinite;
+}
+
+.skills-scroll:hover {
+  animation-play-state: paused;
+}

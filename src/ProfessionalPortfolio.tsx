@@ -8,7 +8,7 @@ import Consistency from "./components/sections/Consistency";
 
 function ProfessionalPortfolio() {
   return (
-    <div className="bg-neutral-950 text-white min-h-screen">
+    <div className="bg-neutral-950 text-white h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
       <main>
         <Hero />
         <About />

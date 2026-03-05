@@ -18,10 +18,10 @@ export default function SectionContainer({
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       transition={{
         duration: 0.7,
-        ease: [0.22, 1, 0.36, 1], // smoother cubic-bezier
+        ease: [0.22, 1, 0.36, 1],
       }}
       viewport={{ once: true, amount: 0.25 }}
-      className={`py-24 px-6 md:px-12  ${className}`}
+      className={`snap-start min-h-screen flex items-center justify-center px-6 md:px-12 ${className}`}
     >
       {children}
     </motion.section>

@@ -1,3 +1,4 @@
+import Footer from "../layout/Footer";
 import SectionContainer from "../ui/SectionContainer";
 import SectionHeading from "../ui/SectionHeading";
 
@@ -6,6 +7,7 @@ function Contact() {
     <>
       <SectionContainer id="Contact">
         <SectionHeading>Contact</SectionHeading>
+        <Footer />
       </SectionContainer>
     </>
   );

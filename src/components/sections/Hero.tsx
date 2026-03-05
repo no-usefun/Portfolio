@@ -5,7 +5,7 @@ export default function Hero() {
   const openResume = () => window.open("/resume.pdf", "_blank");
 
   return (
-    <section className="relative min-h-screen flex items-center bg-neutral-950 text-white overflow-hidden">
+    <section className="relative min-h-screen snap-start flex items-center bg-neutral-950 text-white overflow-hidden">
       {/* Radial Glow */}
       <div className="absolute inset-0">
         <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-blue-600/20 blur-[120px] rounded-full"></div>
@@ -13,7 +13,7 @@ export default function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+          <h1 className="text-6xl md:text-6xl font-bold tracking-tight">
             Harsh Agarwal
           </h1>
 
@@ -36,7 +36,7 @@ export default function Hero() {
 
         <div className="flex justify-center">
           <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full"></div>
+            <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full shadow-[0_0_80px_rgba(59,130,246,0.25)]"></div>
             <img
               src={profile}
               alt="Harsh"
