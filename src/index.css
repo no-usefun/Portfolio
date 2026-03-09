@@ -1,7 +1,9 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Custom horizontal scrollbar only for GitHub calendar */

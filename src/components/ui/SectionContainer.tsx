@@ -21,7 +21,7 @@ export default function SectionContainer({
         ease: [0.22, 1, 0.36, 1],
       }}
       viewport={{ once: true, amount: 0.25 }}
-      className={`snap-start min-h-screen flex items-center justify-center px-6 md:px-12 ${className}`}
+      className={`snap-start h-[100vh] flex items-center justify-center px-6 md:px-12 ${className}`}
     >
       {children}
     </motion.section>

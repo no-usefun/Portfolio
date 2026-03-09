@@ -38,7 +38,7 @@ export default function Skills() {
     <SectionContainer id="skills">
       <div className="max-w-6xl w-full space-y-10">
         {/* Heading */}
-        <SectionHeading className="text-white text-3xl">Skills</SectionHeading>
+        <SectionHeading title="Skills" />
 
         {/* Skills Container */}
         <div className="relative bg-neutral-900 border border-blue-500/20 rounded-2xl p-10 overflow-hidden shadow-[0_0_30px_rgba(59,130,246,0.08)]">

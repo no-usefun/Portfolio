@@ -1,23 +1,20 @@
 import Button from "../ui/Button";
-import profile from "../../assets/profile.jpeg";
+import SectionContainer from "../ui/SectionContainer";
+import profile from "../../assets/profile.png";
 
 export default function Hero() {
   const openResume = () => window.open("/resume.pdf", "_blank");
 
   return (
-    <section className="relative min-h-screen snap-start flex items-center bg-neutral-950 text-white overflow-hidden">
-      {/* Radial Glow */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/3 left-1/3 w-[500px] h-[500px] bg-blue-600/20 blur-[120px] rounded-full"></div>
-      </div>
-
-      <div className="relative max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+    <SectionContainer id="Hero" className="bg-neutral-950 text-white">
+      <div className="relative max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center px-6">
+        {/* LEFT CONTENT */}
         <div>
-          <h1 className="text-6xl md:text-6xl font-bold tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
             Harsh Agarwal
           </h1>
 
-          <h2 className="mt-4 text-2xl md:text-3xl text-blue-400 font-semibold">
+          <h2 className="mt-4 text-xl md:text-2xl text-blue-400 font-semibold">
             Software Development Engineer
           </h2>
 
@@ -34,18 +31,36 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="flex justify-center">
-          <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/20 blur-2xl rounded-full shadow-[0_0_80px_rgba(59,130,246,0.25)]"></div>
-            <img
-              src={profile}
-              alt="Harsh"
-              className="relative w-72 h-72 rounded-full border-4 border-neutral-800 object-cover brightness-90 object-[center_-10px]"
-              draggable="false"
-            />
+        {/* RIGHT IMAGE */}
+        <div className="flex justify-center items-center">
+          <div className="relative w-[440px] h-[440px]">
+            <div
+              className="absolute w-[450px] h-[450px] rounded-full 
+                    bg-gradient-to-r from-cyan-400 to-blue-600 
+                    blur-xl opacity-70"
+            ></div>
+            {/* circle background */}
+            <div className="absolute inset-0 rounded-full bg-blue-900 border-4 border-white overflow-hidden flex items-center justify-center">
+              <img
+                src={profile}
+                alt="Harsh"
+                draggable="false"
+                className="w-[400px] -translate-y-7 object-cover"
+              />
+            </div>
+
+            {/* head overlay */}
+            <div className="absolute top-[-277px] right-[18px] flex items-start justify-center overflow-hidden">
+              <img
+                src={profile}
+                alt="Harsh"
+                draggable="false"
+                className="w-[403px] translate-y-[200px] object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </SectionContainer>
   );
 }

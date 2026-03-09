@@ -17,7 +17,7 @@ const item = {
 
 function About() {
   return (
-    <SectionContainer id="about">
+    <SectionContainer id="about" className="bg-neutral-900">
       <div className="flex items-center gap-16">
         {/* Left Section */}
         <div className="flex items-center gap-6">

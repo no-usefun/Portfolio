@@ -25,13 +25,13 @@ export default function Header({ mode, setMode }: HeaderProps) {
             <a href="#skills" className="hover:text-white transition">
               Skills
             </a>
-            <a href="#projects" className="hover:text-white transition">
+            <a href="#Projects" className="hover:text-white transition">
               Projects
             </a>
-            <a href="#education" className="hover:text-white transition">
+            <a href="#Education" className="hover:text-white transition">
               Education
             </a>
-            <a href="#contact" className="hover:text-white transition">
+            <a href="#Contact" className="hover:text-white transition">
               Contact
             </a>
           </nav>
