@@ -3,12 +3,12 @@ import ProjectCard from "../ui/ProjectCard";
 
 const otherProjects = [
   {
-    title: "Invoice / Bill Auto Filler",
+    title: "Document Auto Filler",
     description:
       "Automates invoice data extraction and fills structured forms using OCR and rule-based parsing.",
     tech: ["Python", "OCR", "Automation"],
-    github: "https://github.com/no-usefun/bill-filler",
-    demo: ""
+    github: "https://github.com/no-usefun/document-filler",
+    demo: "",
   },
   {
     title: "Crop Recommendation System",
@@ -16,7 +16,7 @@ const otherProjects = [
       "Machine learning model recommending crops based on soil nutrients, temperature and rainfall data.",
     tech: ["Python", "ML", "Scikit-learn"],
     github: "https://github.com/no-usefun/Crop-Recommendation-System",
-    demo: ""
+    demo: "",
   },
   {
     title: "Todo List App",
@@ -24,7 +24,7 @@ const otherProjects = [
       "Simple task management app built with React demonstrating component-based architecture.",
     tech: ["React", "JavaScript"],
     github: "https://github.com/no-usefun/todoListApp",
-    demo: "https://todolistapp-67a4.onrender.com"
+    demo: "https://todolistapp-67a4.onrender.com",
   },
   {
     title: "Python Mini Games",
@@ -34,19 +34,19 @@ const otherProjects = [
     github: "https://github.com/no-usefun/small-projects",
   },
   {
-  title: "Portfolio Website",
-  description:
-    "Personal portfolio built with React and Tailwind featuring animated sections and project showcases.",
-  tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
-  github: "https://github.com/no-usefun/Portfolio",
-  demo: ""
+    title: "Portfolio Website",
+    description:
+      "Personal portfolio built with React and Tailwind featuring animated sections and project showcases.",
+    tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+    github: "https://github.com/no-usefun/Portfolio",
+    demo: "",
   },
 ];
 
 export default function OtherProjects() {
   return (
     <SectionContainer id="other-projects" title="Additional Projects">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 -mt-6">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
         {otherProjects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}

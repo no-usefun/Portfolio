@@ -18,7 +18,7 @@ export default function SectionContainer({
   return (
     <section
       id={id}
-      className={`snap-start h-[100vh] flex flex-col items-center justify-start pt-20 px-6 md:px-12 ${className}`}
+      className={`snap-start min-h-screen flex flex-col items-center justify-start pt-24 px-6  ${className}`}
     >
       {/* Title Block */}
 
@@ -26,8 +26,9 @@ export default function SectionContainer({
         <div className="flex flex-col items-center gap-4 mb-12">
           <motion.h2
             initial={{ opacity: 0, y: -60 }}
-            whileInView={{ opacity: 1, y: -60 }}
-            transition={{ duration: 0.3 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            viewport={{ once: true }}
             className="text-4xl font-bold tracking-wide text-center"
           >
             {title}
@@ -35,9 +36,10 @@ export default function SectionContainer({
 
           {showDivider && (
             <motion.div
-              initial={{ width: 0, y: -60 }}
-              whileInView={{ width: 400, y: -60 }}
+              initial={{ width: 0 }}
+              whileInView={{ width: 400 }}
               transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
               className="h-[3px] bg-blue-500"
             />
           )}
@@ -46,7 +48,7 @@ export default function SectionContainer({
 
       {/* Section Content */}
 
-      <div className="w-full flex justify-center item-center">{children}</div>
+      <div className="w-full flex justify-center items-center">{children}</div>
     </section>
   );
 }

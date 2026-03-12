@@ -6,34 +6,20 @@ body {
   overflow: hidden;
 }
 
-.github-scroll::-webkit-scrollbar {
-  height: 8px;
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-.github-scroll::-webkit-scrollbar-track {
-  background: #080f1f;
-  border-radius: 10px;
-}
-
-.github-scroll::-webkit-scrollbar-thumb {
-  background: linear-gradient(90deg, #1e3a8a, #2563eb, #60a5fa);
-  border-radius: 10px;
-}
-
-.github-scroll::-webkit-scrollbar-thumb:hover {
-  background: #3b82f6;
-}
-
-/* Firefox */
-.github-scroll {
-  scrollbar-width: thin;
-  scrollbar-color: #2563eb #080f1f;
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 @keyframes skills-scroll {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }

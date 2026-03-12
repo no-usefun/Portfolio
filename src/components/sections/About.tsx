@@ -44,8 +44,8 @@ const item = {
 
 function About() {
   return (
-    <SectionContainer id="about" className="bg-neutral-950" title="About">
-      <div className="flex flex-col gap-6">
+    <SectionContainer id="about" className="bg-neutral-700" title="About">
+      <div className="flex flex-col gap-6 mt-12">
         {/* About Card */}
 
         <motion.div

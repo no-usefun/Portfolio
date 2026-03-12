@@ -63,7 +63,7 @@ export default function FeaturedProjects() {
 
   return (
     <SectionContainer id="featured-projects" title="Featured Projects">
-      <div className="w-full max-w-7xl mx-auto flex flex-col -mt-12">
+      <div className="w-full max-w-7xl mx-auto flex flex-col">
         <div className="grid md:grid-cols-[260px_1fr] gap-12 items-start">
           {/* PROJECT SELECTOR */}
 
@@ -72,10 +72,10 @@ export default function FeaturedProjects() {
               <button
                 key={project.id}
                 onClick={() => setActiveProject(project)}
-                className={`h-[140px] border rounded-lg flex items-center justify-center text-center font-large px-4 transition
+                className={`h-[140px] border rounded-lg flex items-center text-lg justify-center text-center font-large px-4 transition
                 ${
                   activeProject.id === project.id
-                    ? "border-blue-500 bg-blue-600 text-white"
+                    ? "border-blue-200 bg-blue-600 text-white"
                     : "border-neutral-800 text-neutral-400 hover:border-blue-400 hover:text-white"
                 }`}
               >
@@ -86,7 +86,7 @@ export default function FeaturedProjects() {
 
           {/* CASE STUDY PANEL */}
 
-          <div className="border border-neutral-800 rounded-xl bg-neutral-900 p-6 max-h-[500px] overflow-y-auto">
+          <div className="border border-neutral-800 rounded-xl bg-neutral-900 p-6 max-h-[500px] overflow-y-auto hide-scrollbar">
             <AnimatePresence mode="wait">
               <FeaturedProjectCard project={activeProject} />
             </AnimatePresence>
