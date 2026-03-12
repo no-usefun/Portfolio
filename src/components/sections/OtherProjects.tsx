@@ -1,54 +1,55 @@
 import SectionContainer from "../ui/SectionContainer";
+import ProjectCard from "../ui/ProjectCard";
 
 const otherProjects = [
   {
-    title: "GitHub Repo Analyzer",
-    github: "#",
-    demo: "#",
+    title: "Invoice / Bill Auto Filler",
+    description:
+      "Automates invoice data extraction and fills structured forms using OCR and rule-based parsing.",
+    tech: ["Python", "OCR", "Automation"],
+    github: "https://github.com/no-usefun/bill-filler",
+    demo: ""
   },
   {
-    title: "Portfolio Website",
-    github: "#",
-    demo: "#",
+    title: "Crop Recommendation System",
+    description:
+      "Machine learning model recommending crops based on soil nutrients, temperature and rainfall data.",
+    tech: ["Python", "ML", "Scikit-learn"],
+    github: "https://github.com/no-usefun/Crop-Recommendation-System",
+    demo: ""
   },
   {
-    title: "REST API Service",
-    github: "#",
+    title: "Todo List App",
+    description:
+      "Simple task management app built with React demonstrating component-based architecture.",
+    tech: ["React", "JavaScript"],
+    github: "https://github.com/no-usefun/todoListApp",
+    demo: "https://todolistapp-67a4.onrender.com"
+  },
+  {
+    title: "Python Mini Games",
+    description:
+      "Small desktop games built with Tkinter including Tic-Tac-Toe and a word guessing game.",
+    tech: ["Python", "Tkinter"],
+    github: "https://github.com/no-usefun/small-projects",
+  },
+  {
+  title: "Portfolio Website",
+  description:
+    "Personal portfolio built with React and Tailwind featuring animated sections and project showcases.",
+  tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
+  github: "https://github.com/no-usefun/Portfolio",
+  demo: ""
   },
 ];
 
 export default function OtherProjects() {
   return (
-    <SectionContainer id="OtherProjects" title="Additional Projects">
-      <div className="space-y-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {otherProjects.map((project, index) => (
-            <div
-              key={index}
-              className="bg-neutral-900 border border-neutral-800 rounded-lg p-5 hover:border-purple-500/40 transition"
-            >
-              <h4 className="font-medium mb-4">{project.title}</h4>
-
-              <div className="flex gap-4 text-sm">
-                <a
-                  href={project.github}
-                  className="text-purple-400 hover:underline"
-                >
-                  GitHub
-                </a>
-
-                {project.demo && (
-                  <a
-                    href={project.demo}
-                    className="text-purple-400 hover:underline"
-                  >
-                    Live
-                  </a>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
+    <SectionContainer id="other-projects" title="Additional Projects">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 -mt-6">
+        {otherProjects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
       </div>
     </SectionContainer>
   );
