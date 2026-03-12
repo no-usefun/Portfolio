@@ -1,10 +1,9 @@
 import SectionContainer from "../ui/SectionContainer";
-import SectionHeading from "../ui/SectionHeading";
 
 function Contact() {
   return (
     <SectionContainer id="Contact">
-      <SectionHeading title="Contact" />
+      <h3 className="text-3xl font-bold tracking-wide">Contact</h3>
     </SectionContainer>
   );
 }

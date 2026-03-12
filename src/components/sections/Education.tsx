@@ -1,11 +1,10 @@
 import SectionContainer from "../ui/SectionContainer";
-import SectionHeading from "../ui/SectionHeading";
 
 function Education() {
   return (
     <>
       <SectionContainer id="Education" className="bg-neutral-900">
-        <SectionHeading title="Education" />
+        <h2 className="text-3xl font-bold tracking-wide">Education</h2>
       </SectionContainer>
     </>
   );

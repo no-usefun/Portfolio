@@ -40,7 +40,7 @@ export default function Hero() {
                     blur-xl opacity-70"
             ></div>
             {/* circle background */}
-            <div className="absolute inset-0 rounded-full bg-blue-900 border-4 border-white overflow-hidden flex items-center justify-center">
+            <div className="absolute inset-0 rounded-full bg-neutral-950 border-4 border-white overflow-hidden flex items-center justify-center">
               <img
                 src={profile}
                 alt="Harsh"

@@ -1,11 +1,10 @@
 import SectionContainer from "../ui/SectionContainer";
-import SectionHeading from "../ui/SectionHeading";
 import { GitHubCalendar } from "react-github-calendar";
 
 export default function Consistency() {
   return (
     <SectionContainer id="consistency">
-      <SectionHeading title="Contributions" />
+      <h2 className="text-3xl font-bold tracking-wide">Contributions</h2>
 
       <div className="flex flex-col gap-3 mt-12">
         <div className="bg-white/5 backdrop-blur-md p-8 rounded-xl border border-white/10">

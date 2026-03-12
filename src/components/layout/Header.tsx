@@ -22,11 +22,11 @@ export default function Header({ mode, setMode }: HeaderProps) {
             <a href="#about" className="hover:text-white transition">
               About
             </a>
-            <a href="#skills" className="hover:text-white transition">
-              Skills
-            </a>
             <a href="#Projects" className="hover:text-white transition">
               Projects
+            </a>
+            <a href="#Consistency" className="hover:text-white transition">
+              Contributions
             </a>
             <a href="#Education" className="hover:text-white transition">
               Education
