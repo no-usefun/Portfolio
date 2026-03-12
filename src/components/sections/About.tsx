@@ -2,30 +2,40 @@ import { motion } from "framer-motion";
 import SectionContainer from "../ui/SectionContainer";
 import SkillCard from "../ui/SkillCard";
 
-const skills = [
-  "Data Structures",
-  "Algorithms",
-  "OOP",
-  "DBMS",
-  "Operating Systems",
-  "Java",
-  "Python",
-  "SQL",
-  "Spring Boot",
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "React",
-  "TypeScript",
-  "Tailwind CSS",
-  "Framer Motion",
-  "Git",
-  "GitHub",
-  "VS Code",
-  "PyCharm",
+import {
+  FaJava,
+  FaPython,
+  FaHtml5,
+  FaCss3Alt,
+  FaReact,
+  FaGitAlt,
+} from "react-icons/fa";
+
+import {
+  SiJavascript,
+  SiTypescript,
+  SiTailwindcss,
+  SiSpringboot,
+  SiMysql,
+  SiGithub,
+} from "react-icons/si";
+
+export const skills = [
+  { icon: FaJava, name: "Java" },
+  { icon: FaPython, name: "Python" },
+  { icon: SiJavascript, name: "JavaScript" },
+  { icon: SiTypescript, name: "TypeScript" },
+  { icon: FaHtml5, name: "HTML" },
+  { icon: FaCss3Alt, name: "CSS" },
+  { icon: FaReact, name: "React" },
+  { icon: SiTailwindcss, name: "Tailwind" },
+  { icon: SiSpringboot, name: "Spring Boot" },
+  { icon: SiMysql, name: "MySQL" },
+  { icon: FaGitAlt, name: "Git" },
+  { icon: SiGithub, name: "GitHub" },
 ];
 
-const duplicatedSkills = [...skills, ...skills];
+const scrollingSkills = [...skills, ...skills];
 
 const item = {
   hidden: { opacity: 0, y: 20 },
@@ -35,7 +45,7 @@ const item = {
 function About() {
   return (
     <SectionContainer id="about" className="bg-neutral-900">
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-6">
         {/* Header */}
         <div className="flex flex-col items-center gap-6">
           <motion.h2
@@ -101,10 +111,10 @@ function About() {
 
         {/* Skills Section */}
         <div className="w-full flex justify-center">
-          <div className="w-[calc(100vw-300px)] overflow-hidden border border-neutral-800 rounded-full">
-            <div className="skills-scroll flex gap-6 w-max rounded-full py-3">
-              {duplicatedSkills.map((skill, index) => (
-                <SkillCard key={index} skill={skill} />
+          <div className="w-[calc(100vw-500px)] overflow-hidden border border-neutral-800 rounded-full">
+            <div className="skills-scroll flex gap-3 w-max px-3">
+              {scrollingSkills.map(({ icon: Icon, name }, i) => (
+                <SkillCard key={i} icon={<Icon size={20} />} name={name} />
               ))}
             </div>
           </div>
