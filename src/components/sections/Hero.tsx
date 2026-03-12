@@ -28,6 +28,12 @@ export default function Hero() {
             <Button variant="outline" onClick={openResume}>
               View Resume
             </Button>
+            <Button variant="outline" onClick={openResume}>
+              GitHub
+            </Button>
+            <Button variant="outline" onClick={openResume}>
+              LinkdIn
+            </Button>
           </div>
         </div>
 

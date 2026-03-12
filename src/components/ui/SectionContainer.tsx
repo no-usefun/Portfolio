@@ -38,7 +38,7 @@ export default function SectionContainer({
               initial={{ width: 0, y: -60 }}
               whileInView={{ width: 400, y: -60 }}
               transition={{ duration: 0.7 }}
-              className="h-[3px] bg-blue-500/40"
+              className="h-[3px] bg-blue-500"
             />
           )}
         </div>
