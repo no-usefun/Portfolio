@@ -44,33 +44,14 @@ const item = {
 
 function About() {
   return (
-    <SectionContainer id="about" className="bg-neutral-900">
+    <SectionContainer id="about" className="bg-neutral-950" title="About">
       <div className="flex flex-col gap-6">
-        {/* Header */}
-        <div className="flex flex-col items-center gap-6">
-          <motion.h2
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: -0, y: -50 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl font-bold tracking-wide"
-          >
-            ABOUT
-          </motion.h2>
-
-          <motion.div
-            initial={{ width: 0 }}
-            whileInView={{ width: 250, y: -50 }}
-            transition={{ duration: 0.6 }}
-            className="h-[3px] bg-blue-500/40"
-          />
-        </div>
-
         {/* About Card */}
 
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: -50 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="bg-neutral-900 border flex flex-col items-center border-blue-500/20 rounded-2xl p-10 max-w-4xl mx-auto shadow-[0_0_40px_rgba(59,130,246,0.15)]"
         >
           <motion.h2
@@ -110,11 +91,11 @@ function About() {
         </motion.div>
 
         {/* Skills Section */}
-        <div className="w-full flex justify-center">
-          <div className="w-[calc(100vw-500px)] overflow-hidden border border-neutral-800 rounded-full">
+        <div className="w-full flex justify-center -mt-10">
+          <div className="w-[calc(100vw-500px)] overflow-hidden border border-neutral-800 rounded-full bg-neutral-950">
             <div className="skills-scroll flex gap-3 w-max px-3">
               {scrollingSkills.map(({ icon: Icon, name }, i) => (
-                <SkillCard key={i} icon={<Icon size={20} />} name={name} />
+                <SkillCard key={i} icon={<Icon size={22} />} name={name} />
               ))}
             </div>
           </div>

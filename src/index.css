@@ -6,7 +6,6 @@ body {
   overflow: hidden;
 }
 
-/* Custom horizontal scrollbar only for GitHub calendar */
 .github-scroll::-webkit-scrollbar {
   height: 8px;
 }
@@ -41,7 +40,7 @@ body {
 }
 
 .skills-scroll {
-  animation: skills-scroll 35s linear infinite;
+  animation: skills-scroll 25s linear infinite;
 }
 
 .skills-scroll:hover {

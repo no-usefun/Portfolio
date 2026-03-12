@@ -19,10 +19,7 @@ const otherProjects = [
 
 export default function OtherProjects() {
   return (
-    <SectionContainer id="OtherProjects" className="bg-neutral-900">
-      <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-center mb-10">
-        Other Projects
-      </h2>
+    <SectionContainer id="OtherProjects" title="Additional Projects">
       <div className="space-y-10">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {otherProjects.map((project, index) => (

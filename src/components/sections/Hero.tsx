@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <SectionContainer id="Hero" className="bg-neutral-950 text-white">
-      <div className="relative max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center px-6">
+      <div className="relative mt-12 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center px-6">
         {/* LEFT CONTENT */}
         <div>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight">

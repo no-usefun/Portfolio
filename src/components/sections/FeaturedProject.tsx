@@ -26,7 +26,7 @@ const featuredProjects = [
   },
   {
     id: "plagiarism-checker",
-    title: "AI Plagiarism Checker & AI-Generated Text Detector",
+    title: "AI Plagiarism Checker & AI Text Detector",
     overview:
       "A machine learning web application that analyzes documents to detect plagiarism and AI-generated text using similarity analysis and classification models.",
     problem:
@@ -51,59 +51,46 @@ export default function FeaturedProjects() {
   const [activeProject, setActiveProject] = useState(featuredProjects[0]);
 
   return (
-    <SectionContainer id="featured-projects">
-      <div className="w-full max-w-7xl h-full flex flex-col gap-10">
-        {/* TITLE */}
+    <SectionContainer id="featured-projects" title="Featured Projects">
+      <div className="w-full max-w-7xl mx-auto flex flex-col -mt-10">
+        <div className="grid md:grid-cols-[260px_1fr] gap-15 items-start">
+          {/* PROJECT SELECTOR */}
 
-        <div>
-          <h2 className="text-3xl font-semibold tracking-tight">
-            Featured Projects
-          </h2>
-          <p className="text-neutral-400 text-sm mt-1">
-            Selected projects with technical case studies
-          </p>
-        </div>
-
-        {/* MAIN LAYOUT */}
-
-        <div className="grid md:grid-cols-[240px_240px_1fr] gap-8 items-start">
-          {/* LEFT PROJECT LIST */}
-
-          <div className="contents">
+          <div className="flex flex-col gap-18">
             {featuredProjects.map((project) => (
               <button
                 key={project.id}
                 onClick={() => setActiveProject(project)}
-                className={`h-[200px] border rounded-lg flex items-center justify-center text-center transition
-    ${
-      activeProject.id === project.id
-        ? "border-blue-500 bg-neutral-900 text-white"
-        : "border-neutral-800 text-neutral-400 hover:border-blue-400 hover:text-white"
-    }`}
+                className={`h-[160px] border rounded-lg flex items-center justify-center text-center text-sm font-medium px-4 transition
+                ${
+                  activeProject.id === project.id
+                    ? "border-blue-500 bg-neutral-900 text-white"
+                    : "border-neutral-800 text-neutral-400 hover:border-blue-400 hover:text-white"
+                }`}
               >
-                {project.id === "visualizer" ? "P1" : "P2"}
+                {project.title}
               </button>
             ))}
           </div>
 
-          {/* RIGHT CASE STUDY PANEL */}
+          {/* CASE STUDY PANEL */}
 
-          <div className="border border-neutral-800 rounded-xl bg-neutral-900 p-6 h-[600px] flex flex-col overflow-y-auto">
+          <div className="border border-neutral-800 rounded-xl bg-neutral-900 p-6 h-[500px] overflow-y-auto">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeProject.id}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -15 }}
-                transition={{ duration: 0.3 }}
-                className="flex flex-col h-full"
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.35 }}
+                className="flex flex-col gap-6"
               >
                 {/* IMAGE */}
 
                 <img
                   src={activeProject.image}
                   alt={activeProject.title}
-                  className="rounded-lg border border-neutral-800 w-full aspect-video object-cover"
+                  className="rounded-lg border border-neutral-800 w-full aspect-video object-cover hover:scale-[1.02] transition"
                 />
 
                 {/* TITLE */}
@@ -115,7 +102,9 @@ export default function FeaturedProjects() {
                 {/* OVERVIEW */}
 
                 <div>
-                  <h4 className="font-medium mb-1">Overview</h4>
+                  <h4 className="text-sm font-semibold text-neutral-300 mb-1">
+                    Overview
+                  </h4>
                   <p className="text-neutral-400 text-sm">
                     {activeProject.overview}
                   </p>
@@ -124,7 +113,9 @@ export default function FeaturedProjects() {
                 {/* PROBLEM */}
 
                 <div>
-                  <h4 className="font-medium mb-1">Problem</h4>
+                  <h4 className="text-sm font-semibold text-neutral-300 mb-1">
+                    Problem
+                  </h4>
                   <p className="text-neutral-400 text-sm">
                     {activeProject.problem}
                   </p>
@@ -133,7 +124,9 @@ export default function FeaturedProjects() {
                 {/* APPROACH */}
 
                 <div>
-                  <h4 className="font-medium mb-1">Approach</h4>
+                  <h4 className="text-sm font-semibold text-neutral-300 mb-1">
+                    Approach
+                  </h4>
                   <p className="text-neutral-400 text-sm">
                     {activeProject.approach}
                   </p>
@@ -142,7 +135,9 @@ export default function FeaturedProjects() {
                 {/* FEATURES */}
 
                 <div>
-                  <h4 className="font-medium mb-2">Key Features</h4>
+                  <h4 className="text-sm font-semibold text-neutral-300 mb-2">
+                    Key Features
+                  </h4>
 
                   <ul className="list-disc list-inside text-neutral-400 text-sm space-y-1">
                     {activeProject.features.map((feature, i) => (
@@ -157,7 +152,7 @@ export default function FeaturedProjects() {
                   {activeProject.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="text-xs bg-neutral-800 px-2 py-1 rounded"
+                      className="text-xs bg-neutral-800/80 border border-neutral-700 px-2 py-1 rounded-md"
                     >
                       {tech}
                     </span>
