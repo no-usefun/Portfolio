@@ -1,14 +1,41 @@
 import { motion } from "framer-motion";
 import SectionContainer from "../ui/SectionContainer";
+import SkillCard from "../ui/SkillCard";
 
-const container = {
-  hidden: {},
-  show: {
-    transition: {
-      staggerChildren: 0.15,
-    },
-  },
-};
+import {
+  FaJava,
+  FaPython,
+  FaHtml5,
+  FaCss3Alt,
+  FaReact,
+  FaGitAlt,
+} from "react-icons/fa";
+
+import {
+  SiJavascript,
+  SiTypescript,
+  SiTailwindcss,
+  SiSpringboot,
+  SiMysql,
+  SiGithub,
+} from "react-icons/si";
+
+export const skills = [
+  { icon: FaJava, name: "Java" },
+  { icon: FaPython, name: "Python" },
+  { icon: SiJavascript, name: "JavaScript" },
+  { icon: SiTypescript, name: "TypeScript" },
+  { icon: FaHtml5, name: "HTML" },
+  { icon: FaCss3Alt, name: "CSS" },
+  { icon: FaReact, name: "React" },
+  { icon: SiTailwindcss, name: "Tailwind" },
+  { icon: SiSpringboot, name: "Spring Boot" },
+  { icon: SiMysql, name: "MySQL" },
+  { icon: FaGitAlt, name: "Git" },
+  { icon: SiGithub, name: "GitHub" },
+];
+
+const scrollingSkills = [...skills, ...skills];
 
 const item = {
   hidden: { opacity: 0, y: 20 },
@@ -17,33 +44,15 @@ const item = {
 
 function About() {
   return (
-    <SectionContainer id="about">
-      <div className="flex items-center gap-16">
-        {/* Left Section */}
-        <div className="flex items-center gap-6">
-          <motion.h2
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl font-bold tracking-wide"
-          >
-            ABOUT
-          </motion.h2>
+    <SectionContainer id="about" className="bg-neutral-700" title="About">
+      <div className="flex flex-col gap-6 mt-12">
+        {/* About Card */}
 
-          <motion.div
-            initial={{ height: 0 }}
-            whileInView={{ height: 300 }}
-            transition={{ duration: 0.6 }}
-            className="w-[3px] bg-blue-500/40"
-          />
-        </div>
-
-        {/* Content Card */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="bg-neutral-900 border border-blue-500/20 rounded-2xl p-10 max-w-4xl shadow-[0_0_40px_rgba(59,130,246,0.15)]"
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: -50 }}
+          transition={{ duration: 0.3 }}
+          className="bg-neutral-900 border flex flex-col items-center border-blue-500/20 rounded-2xl p-10 max-w-4xl mx-auto shadow-[0_0_40px_rgba(59,130,246,0.15)]"
         >
           <motion.h2
             variants={item}
@@ -54,12 +63,7 @@ function About() {
             Software Engineer • Problem Solver • System Thinker
           </motion.h2>
 
-          <motion.div
-            variants={container}
-            initial="hidden"
-            whileInView="show"
-            className="space-y-4 text-neutral-300 leading-relaxed text-justify"
-          >
+          <div className="space-y-4 text-neutral-300 leading-relaxed text-justify">
             <motion.p variants={item}>
               Computer Science undergraduate at VIT-AP (CGPA: 9.35), focused on
               building efficient and scalable software systems.
@@ -80,11 +84,22 @@ function About() {
 
             <motion.p variants={item}>
               Built an AI-based Plagiarism & Text Detection system using TF-IDF,
-              cosine similarity, and BERT embeddings with complete preprocessing
-              and model evaluation pipelines.
+              cosine similarity, and BERT embeddings with full preprocessing and
+              evaluation pipelines.
             </motion.p>
-          </motion.div>
+          </div>
         </motion.div>
+
+        {/* Skills Section */}
+        <div className="w-full flex justify-center -mt-10">
+          <div className="w-[calc(100vw-500px)] overflow-hidden border border-neutral-800 rounded-full bg-neutral-950">
+            <div className="skills-scroll flex gap-3 w-max px-3">
+              {scrollingSkills.map(({ icon: Icon, name }, i) => (
+                <SkillCard key={i} icon={<Icon size={22} />} name={name} />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </SectionContainer>
   );

@@ -12,7 +12,7 @@ function App() {
   }, [mode]);
 
   return (
-    <div className="bg-neutral-950 text-white min-h-screen">
+    <div className="bg-neutral-950 text-white">
       <Header mode={mode} setMode={setMode} />
 
       <main className="pt-16">

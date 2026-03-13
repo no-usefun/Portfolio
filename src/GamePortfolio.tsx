@@ -1,6 +1,6 @@
 function GamePortfolio() {
   return (
-    <div className="bg-neutral-950 text-white min-h-screen">
+    <div className="bg-neutral-950 text-white">
       <main>
         <h2>Game Mode</h2>
       </main>
