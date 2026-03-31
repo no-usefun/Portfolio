@@ -26,7 +26,7 @@ export default function ProjectCarousel({ images }: ProjectCarousel) {
           <img
             key={i}
             src={img}
-            className="w-full flex-shrink-0 object-contain aspect-video max-h-[300px]"
+            className="w-full flex-shrink-0 object-cover aspect-video max-h-[300px]"
           />
         ))}
       </div>
