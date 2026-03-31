@@ -9,8 +9,8 @@ import {
 } from "react-icons/si";
 
 const problemsSolved = "170+";
-const dayStreak = "25";
-const contributions = "183";
+const dayStreak = "15";
+const contributions = "188";
 const repositories = "10+";
 
 const platforms = [
@@ -43,28 +43,28 @@ const platforms = [
 
 export default function Contributions() {
   return (
-    <SectionContainer title="Contributions" id="contributions" className="py-8">
-      <div className="mt-5 flex justify-center">
-        <div className="w-full max-w-6xl">
+    <SectionContainer title="Contributions" id="contributions">
+      <div className="w-full flex justify-center">
+        <div className="w-full max-w-7xl xl:max-w-[1400px]">
           <div className="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/10 space-y-6 hover:translate-y-[-4px] transition">
             {/* 🔹 HEADER (only name + status) */}
             <div className="flex justify-between items-center">
-              <h3 className="text-lg font-semibold">no-usefun</h3>
-
-              <span className="text-green-400 text-sm flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-400 rounded-full" />
-                Active
-              </span>
+              <h3 className="text-xl md:text-2xl font-semibold tracking-wide">
+                Activity Graph & Stats
+              </h3>
+              <h3 className="text-sm text-green-400 font-medium">
+                Active Contributor
+              </h3>
             </div>
 
             {/* 🔹 CALENDAR */}
-            <div className="flex justify-center">
-              <div className="scale-[0.85] md:scale-100 origin-top">
+            <div className="w-full overflow-x-auto hide-scrollbar ">
+              <div className="w-max mx-auto">
                 <GitHubCalendar
                   username="no-usefun"
-                  blockSize={10}
-                  blockMargin={4}
-                  fontSize={12}
+                  blockSize={12}
+                  blockMargin={8}
+                  fontSize={15}
                   theme={{
                     dark: [
                       "#0a0f1c",
@@ -77,7 +77,7 @@ export default function Contributions() {
                 />
               </div>
             </div>
-
+            <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
             {/* 🔹 UPDATED STATS */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {[
@@ -88,7 +88,7 @@ export default function Contributions() {
               ].map(([value, label], i) => (
                 <div
                   key={i}
-                  className="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+                  className="bg-gradient-to-br from-white/5 to-white/0 border border-white/10 rounded-xl p-4 text-center hover:scale-[1.05] hover:border-blue-400 transition-all duration-300 "
                 >
                   <p className="text-xl font-bold">{value}</p>
                   <p className="text-xs text-neutral-400">{label}</p>
@@ -97,14 +97,14 @@ export default function Contributions() {
             </div>
 
             {/* 🔹 PLATFORM LINKS (NEW) */}
-            <div className="flex flex-wrap justify-center gap-3 pt-2">
+            <div className="flex flex-wrap justify-center gap-8 pt-2">
               {platforms.map((p, i) => (
                 <a
                   key={i}
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 text-sm bg-white/5 border border-white/10 rounded-full hover:border-blue-500/40 hover:bg-blue-500/10 transition"
+                  className="flex items-center gap-3 px-4 py-2 text-sm bg-white/5 border border-white/10 rounded-full hover:border-blue-400 hover:bg-blue-500/10 hover:scale-105 transition-all duration-200"
                 >
                   {p.icon}
                   {p.name}
