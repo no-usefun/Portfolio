@@ -10,7 +10,6 @@ import {
   FaReact,
   FaGitAlt,
 } from "react-icons/fa";
-
 import {
   SiJavascript,
   SiTypescript,
@@ -35,35 +34,55 @@ export const skills = [
   { icon: SiGithub, name: "GitHub" },
 ];
 
-const scrollingSkills = [...skills, ...skills];
+// Triple-duplicate for seamless loop
+const scrollingSkills = [...skills, ...skills, ...skills];
+
+const container = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.1, // each <p> staggers in 100ms apart
+      delayChildren: 0.2,
+    },
+  },
+};
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 16 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.4 } },
 };
 
 function About() {
   return (
-    <SectionContainer id="about" className="bg-neutral-700" title="About">
-      <div className="flex flex-col gap-6 mt-12">
-        {/* About Card */}
-
+    <SectionContainer id="about" title="About">
+      <div className="flex flex-col items-center gap-6 mt-6">
+        {/* About Card — fixed y bug, added stagger container */}
         <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: -50 }}
-          transition={{ duration: 0.3 }}
-          className="bg-neutral-900 border flex flex-col items-center border-blue-500/20 rounded-2xl p-10 max-w-4xl mx-auto shadow-[0_0_40px_rgba(59,130,246,0.15)]"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }} // ✅ was y:-50 before (bug)
+          viewport={{ once: true, amount: 0.2 }} // ✅ fires once, not on every scroll
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="bg-neutral-900 border border-blue-500/20 rounded-2xl p-10 max-w-4xl w-full
+            shadow-[0_0_40px_rgba(59,130,246,0.12)]"
         >
           <motion.h2
-            variants={item}
-            initial="hidden"
-            whileInView="show"
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
             className="text-3xl font-semibold text-white mb-6 text-center"
           >
             Software Engineer • Problem Solver • System Thinker
           </motion.h2>
 
-          <div className="space-y-4 text-neutral-300 leading-relaxed text-justify">
+          {/* ✅ stagger container — now paragraphs actually cascade */}
+          <motion.div
+            variants={container}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            className="space-y-4 text-neutral-300 leading-relaxed text-justify"
+          >
             <motion.p variants={item}>
               Computer Science undergraduate at VIT-AP (CGPA: 9.35), focused on
               building efficient and scalable software systems.
@@ -87,20 +106,31 @@ function About() {
               cosine similarity, and BERT embeddings with full preprocessing and
               evaluation pipelines.
             </motion.p>
-          </div>
+          </motion.div>
         </motion.div>
 
-        {/* Skills Section */}
-        <div className="w-full flex justify-center -mt-10">
-          <div className="w-[calc(100vw-500px)] overflow-hidden border border-neutral-800 rounded-full bg-neutral-950">
-            <div className="skills-scroll flex gap-3 w-max px-3">
-              {scrollingSkills.map(({ icon: Icon, name }, i) => (
-                <SkillCard key={i} icon={<Icon size={22} />} name={name} />
-              ))}
-            </div>
+        {/* Skills marquee — responsive width fix */}
+        <div className="w-full max-w-4xl overflow-hidden border border-neutral-800 rounded-full bg-neutral-950">
+          <div
+            className="flex gap-3 px-3 w-max"
+            style={{
+              animation: "marquee 28s linear infinite",
+            }}
+          >
+            {scrollingSkills.map(({ icon: Icon, name }, i) => (
+              <SkillCard key={i} icon={<Icon size={22} />} name={name} />
+            ))}
           </div>
         </div>
       </div>
+
+      {/* Scoped keyframe — no extra CSS file needed */}
+      <style>{`
+        @keyframes marquee {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+      `}</style>
     </SectionContainer>
   );
 }

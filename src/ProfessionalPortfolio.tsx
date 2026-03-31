@@ -4,7 +4,6 @@ import FeaturedProject from "./components/sections/FeaturedProject";
 import Experience from "./components/sections/Experience";
 import Contact from "./components/sections/Contact";
 import Contributions from "./components/sections/Contributions";
-import Footer from "./components/layout/Footer";
 import OtherProjects from "./components/sections/OtherProjects";
 
 function ProfessionalPortfolio() {
@@ -18,7 +17,6 @@ function ProfessionalPortfolio() {
         <Contributions />
         <Experience />
         <Contact />
-        <Footer />
       </main>
     </div>
   );
