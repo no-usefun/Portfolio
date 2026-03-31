@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import SectionContainer from "../ui/SectionContainer";
 import FeaturedProjectCard from "../ui/FeaturedProjectCard";
+
+const base = import.meta.env.BASE_URL;
 
 const featuredProjects = [
   {
@@ -22,12 +24,12 @@ const featuredProjects = [
     ],
     tech: ["React", "TypeScript", "Spring Boot", "Java", "Tailwind CSS"],
     github: "https://github.com/no-usefun/DATA-VISUALIZER",
-    demo: "https://data-visualizer-dbn173il3-harshs-projects-1dc69899.vercel.app/",
+    demo: "https://data-visualizer-kappa.vercel.app/",
     image: [
-      "../../src/assets/projects/v1.png",
-      "../../src/assets/projects/v2.png",
-      "../../src/assets/projects/v3.png",
-      "../../src/assets/projects/v4.png",
+      `${base}projects/v1.png`,
+      `${base}projects/v2.png`,
+      `${base}projects/v3.png`,
+      `${base}projects/v4.png`,
     ],
   },
   {
@@ -50,48 +52,116 @@ const featuredProjects = [
     github: "https://github.com/no-usefun/AI_plagarism_Checker",
     demo: "https://ai-plagarism-checker-3jzr.onrender.com/",
     image: [
-      "../../src/assets/projects/p2.png",
-      "../../src/assets/projects/p1.png",
-      "../../src/assets/projects/p3.png",
-      "../../src/assets/projects/p4.png",
+      `${base}projects/p2.png`,
+      `${base}projects/p1.png`,
+      `${base}projects/p3.png`,
+      `${base}projects/p4.png`,
     ],
   },
 ];
 
+type Project = {
+  id: string;
+  title: string;
+  overview: string;
+  problem: string;
+  approach: string;
+  tech: string[];
+  features: string[];
+  github: string;
+  demo: string;
+  image: string[];
+};
+
 export default function FeaturedProjects() {
-  const [activeProject, setActiveProject] = useState(featuredProjects[0]);
+  const [activeProject, setActiveProject] = useState<Project | null>(null);
+
+  const isExpanded = !!activeProject;
 
   return (
     <SectionContainer id="featured-projects" title="Featured Projects">
-      <div className="w-full max-w-7xl mx-auto flex flex-col">
-        <div className="grid md:grid-cols-[260px_1fr] gap-12 items-start">
-          {/* PROJECT SELECTOR */}
+      <div className="w-full max-w-7xl mx-auto items-center">
+        <motion.div
+          layout
+          className={`grid ${isExpanded ? "md:grid-cols-[auto_1fr]" : "grid-cols-1"} gap-10 items-start`}
+        >
+          {/* LEFT SIDE */}
+          <div className="w-fit max-w-4xl mx-auto">
+            <motion.div
+              layout
+              className={`flex flex-col gap-8 ${isExpanded ? "items-start" : "items-center"}`}
+            >
+              {featuredProjects.map((project) => {
+                const isActive = activeProject?.id === project.id;
 
-          <div className="flex flex-col gap-6 justify-center h-full">
-            {featuredProjects.map((project) => (
-              <button
-                key={project.id}
-                onClick={() => setActiveProject(project)}
-                className={`h-[140px] border rounded-lg flex items-center text-lg justify-center text-center font-large px-4 transition
-                ${
-                  activeProject.id === project.id
-                    ? "border-blue-200 bg-blue-600 text-white"
-                    : "border-neutral-800 text-neutral-400 hover:border-blue-400 hover:text-white"
-                }`}
-              >
-                {project.title}
-              </button>
-            ))}
+                return (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    onClick={() => setActiveProject(project)}
+                    transition={{ type: "spring", stiffness: 220, damping: 26 }}
+                    animate={{
+                      maxWidth: isExpanded ? 350 : 800,
+                      minWidth: isExpanded ? 350 : "100%",
+                    }}
+                    className={`cursor-pointer rounded-xl border border-neutral-800 
+                  bg-gradient-to-r from-neutral-900 to-neutral-800 
+                  p-6 shadow-lg shadow-black/30 overflow-hidden 
+                  ${
+                    isActive
+                      ? "border-blue-400 text-white"
+                      : "hover:border-blue-400 hover:shadow-blue-500/10 opacity-80"
+                  }`}
+                  >
+                    <h3 className="text-xl font-semibold mb-2 whitespace-nowrap overflow-hidden text-ellipsis">
+                      {project.title}
+                    </h3>
+
+                    <p className="text-neutral-400 text-sm mb-4">
+                      {project.overview}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs px-3 py-1 rounded-md bg-blue-600/90 text-white"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="text-blue-400 text-sm font-medium">
+                      Click to expand →
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
           </div>
 
-          {/* CASE STUDY PANEL */}
-
-          <div className="border border-neutral-800 rounded-xl bg-neutral-900 p-6 max-h-[500px] overflow-y-auto hide-scrollbar">
+          {/* RIGHT PANEL */}
+          <motion.div
+            layout
+            animate={{ opacity: isExpanded ? 1 : 0 }}
+            className="border border-neutral-800 rounded-xl bg-neutral-900 p-6 max-h-[500px] overflow-y-auto hide-scrollbar"
+          >
             <AnimatePresence mode="wait">
-              <FeaturedProjectCard project={activeProject} />
+              {activeProject && (
+                <motion.div
+                  key={activeProject.id}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.5, ease: "easeIn" }}
+                >
+                  <FeaturedProjectCard project={activeProject} />
+                </motion.div>
+              )}
             </AnimatePresence>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </SectionContainer>
   );

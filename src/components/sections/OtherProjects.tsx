@@ -31,14 +31,14 @@ const otherProjects = [
       "Personal portfolio built with React and Tailwind featuring animated sections and project showcases.",
     tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
     github: "https://github.com/no-usefun/Portfolio",
-    demo: "",
+    demo: "https://no-usefun.github.io/Portfolio/",
   },
 ];
 
 export default function OtherProjects() {
   return (
     <SectionContainer id="other-projects" title="Additional Projects">
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 mt-12">
         {otherProjects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
