@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import SectionContainer from "../ui/SectionContainer";
 import FeaturedProjectCard from "../ui/FeaturedProjectCard";
 
@@ -60,38 +60,114 @@ const featuredProjects = [
 
 export default function FeaturedProjects() {
   const [activeProject, setActiveProject] = useState(featuredProjects[0]);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <SectionContainer id="featured-projects" title="Featured Projects">
       <div className="w-full max-w-7xl mx-auto flex flex-col">
-        <div className="grid md:grid-cols-[260px_1fr] gap-12 items-start">
-          {/* PROJECT SELECTOR */}
+        <AnimatePresence mode="wait">
+          {/* -------- INITIAL STATE -------- */}
+          {!isExpanded && (
+            <motion.div
+              key="list"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex flex-col items-center justify-center min-h-[420px] px-6"
+            >
+              <div className="flex flex-col gap-8 w-full max-w-4xl">
+                {featuredProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    layoutId={`card-${project.id}`}
+                    whileHover={{ y: -6 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 18 }}
+                    onClick={() => {
+                      setActiveProject(project);
+                      setIsExpanded(true);
+                    }}
+                    className="cursor-pointer rounded-xl border border-neutral-800 
+                    bg-gradient-to-r from-neutral-900 to-neutral-800 
+                    p-6 md:p-8 shadow-lg shadow-black/30
+                    hover:border-blue-400 hover:shadow-blue-500/10 
+                    transition-all"
+                  >
+                    {/* Title */}
+                    <h3 className="text-xl font-semibold text-white mb-2">
+                      {project.title}
+                    </h3>
 
-          <div className="flex flex-col gap-6 justify-center h-full">
-            {featuredProjects.map((project) => (
-              <button
-                key={project.id}
-                onClick={() => setActiveProject(project)}
-                className={`h-[140px] border rounded-lg flex items-center text-lg justify-center text-center font-large px-4 transition
-                ${
-                  activeProject.id === project.id
-                    ? "border-blue-200 bg-blue-600 text-white"
-                    : "border-neutral-800 text-neutral-400 hover:border-blue-400 hover:text-white"
-                }`}
-              >
-                {project.title}
-              </button>
-            ))}
-          </div>
+                    {/* Description */}
+                    <p className="text-neutral-400 text-sm mb-4">
+                      {project.overview}
+                    </p>
 
-          {/* CASE STUDY PANEL */}
+                    {/* Tech */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tech.slice(0, 4).map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs px-3 py-1 rounded-md bg-blue-600/90 text-white"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
 
-          <div className="border border-neutral-800 rounded-xl bg-neutral-900 p-6 max-h-[500px] overflow-y-auto hide-scrollbar">
-            <AnimatePresence mode="wait">
-              <FeaturedProjectCard project={activeProject} />
-            </AnimatePresence>
-          </div>
-        </div>
+                    {/* CTA */}
+                    <div className="text-blue-400 text-sm font-medium">
+                      Click to expand →
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+
+          {/* -------- EXPANDED STATE -------- */}
+          {isExpanded && (
+            <motion.div
+              key="expanded"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0 }}
+              className="grid md:grid-cols-[240px_1fr] gap-12 items-start"
+            >
+              {/* LEFT SELECTOR */}
+              <div className="flex flex-col gap-4">
+                {featuredProjects.map((project) => (
+                  <motion.div
+                    key={project.id}
+                    layout
+                    layoutId={`card-${project.id}`}
+                    onClick={() => setActiveProject(project)}
+                    className={`cursor-pointer h-[80px] rounded-lg flex items-center px-4 text-sm transition
+                    ${
+                      activeProject.id === project.id
+                        ? "bg-blue-600 text-white"
+                        : "bg-neutral-800 text-neutral-400 hover:bg-neutral-700"
+                    }`}
+                  >
+                    {/* optional indicator */}
+                    {activeProject.id === project.id && (
+                      <div className="w-1 h-6 bg-white rounded mr-3" />
+                    )}
+
+                    {project.title}
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* RIGHT PANEL */}
+              <div className="border border-neutral-800 rounded-xl bg-neutral-900 p-6 max-h-[500px] overflow-y-auto hide-scrollbar">
+                <AnimatePresence mode="wait">
+                  <FeaturedProjectCard project={activeProject} />
+                </AnimatePresence>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </SectionContainer>
   );

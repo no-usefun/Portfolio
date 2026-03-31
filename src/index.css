@@ -1,18 +1,30 @@
 @import "tailwindcss";
 
+/* Hide vertical scrollbar globally */
 html,
 body {
-  height: 100%;
-  overflow: hidden;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
 
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari */
+}
+
+/* Hide scrollbar but keep scrolling */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
 .hide-scrollbar {
   -ms-overflow-style: none;
+  /* IE & Edge */
   scrollbar-width: none;
+  /* Firefox */
 }
 
 @keyframes skills-scroll {

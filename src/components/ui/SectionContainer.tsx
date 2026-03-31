@@ -18,7 +18,7 @@ export default function SectionContainer({
   return (
     <section
       id={id}
-      className={`min-h-screen flex flex-col items-center justify-start pt-20 px-6 ${className}`}
+      className={`min-h-[calc(100vh-10px)] flex flex-col items-center justify-start scroll-mt-20 px-6 ${className}`}
     >
       {/* Title Block */}
 
@@ -28,7 +28,7 @@ export default function SectionContainer({
             initial={{ opacity: 0, y: -60 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.3 }}
             className="text-4xl font-bold tracking-wide text-center"
           >
             {title}
@@ -39,7 +39,7 @@ export default function SectionContainer({
               initial={{ width: 0 }}
               whileInView={{ width: 400 }}
               transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.3 }}
               className="h-[3px] bg-blue-500"
             />
           )}

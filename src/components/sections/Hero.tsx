@@ -10,7 +10,7 @@ export default function Hero() {
     window.open("https://www.linkedin.com/in/no-usefun", "_blank");
 
   return (
-    <SectionContainer id="Hero" className="bg-neutral-950 text-white pt-35">
+    <SectionContainer id="Hero" className="bg-neutral-950 text-white pt-20">
       <div className="relative mt-12 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center px-6">
         {/* LEFT CONTENT */}
         <div>

@@ -44,7 +44,7 @@ const item = {
 
 function About() {
   return (
-    <SectionContainer id="about" className="bg-neutral-700" title="About">
+    <SectionContainer id="about" title="About">
       <div className="flex flex-col gap-6 mt-12">
         {/* About Card */}
 
