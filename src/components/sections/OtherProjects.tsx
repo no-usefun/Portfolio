@@ -31,7 +31,7 @@ const otherProjects = [
       "Personal portfolio built with React and Tailwind featuring animated sections and project showcases.",
     tech: ["React", "TypeScript", "Tailwind", "Framer Motion"],
     github: "https://github.com/no-usefun/Portfolio",
-    demo: "",
+    demo: "https://no-usefun.github.io/Portfolio/",
   },
 ];
 

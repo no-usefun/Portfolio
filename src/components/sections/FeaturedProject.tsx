@@ -3,6 +3,8 @@ import { AnimatePresence, motion } from "framer-motion";
 import SectionContainer from "../ui/SectionContainer";
 import FeaturedProjectCard from "../ui/FeaturedProjectCard";
 
+const base = import.meta.env.BASE_URL;
+
 const featuredProjects = [
   {
     id: "visualizer",
@@ -24,10 +26,10 @@ const featuredProjects = [
     github: "https://github.com/no-usefun/DATA-VISUALIZER",
     demo: "https://data-visualizer-kappa.vercel.app/",
     image: [
-      "../../src/assets/projects/v1.png",
-      "../../src/assets/projects/v2.png",
-      "../../src/assets/projects/v3.png",
-      "../../src/assets/projects/v4.png",
+      `${base}projects/v1.png`,
+      `${base}projects/v2.png`,
+      `${base}projects/v3.png`,
+      `${base}projects/v4.png`,
     ],
   },
   {
@@ -50,10 +52,10 @@ const featuredProjects = [
     github: "https://github.com/no-usefun/AI_plagarism_Checker",
     demo: "https://ai-plagarism-checker-3jzr.onrender.com/",
     image: [
-      "../../src/assets/projects/p2.png",
-      "../../src/assets/projects/p1.png",
-      "../../src/assets/projects/p3.png",
-      "../../src/assets/projects/p4.png",
+      `${base}projects/p2.png`,
+      `${base}projects/p1.png`,
+      `${base}projects/p3.png`,
+      `${base}projects/p4.png`,
     ],
   },
 ];
