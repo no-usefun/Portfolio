@@ -3,14 +3,6 @@ import ProjectCard from "../ui/ProjectCard";
 
 const otherProjects = [
   {
-    title: "Document Auto Filler",
-    description:
-      "Automates invoice data extraction and fills structured forms using OCR and rule-based parsing.",
-    tech: ["Python", "OCR", "Automation"],
-    github: "https://github.com/no-usefun/document-filler",
-    demo: "",
-  },
-  {
     title: "Crop Recommendation System",
     description:
       "Machine learning model recommending crops based on soil nutrients, temperature and rainfall data.",

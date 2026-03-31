@@ -1,7 +1,7 @@
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import FeaturedProject from "./components/sections/FeaturedProject";
-import Education from "./components/sections/Education";
+import Experience from "./components/sections/Experience";
 import Contact from "./components/sections/Contact";
 import Contributions from "./components/sections/Contributions";
 import Footer from "./components/layout/Footer";
@@ -16,7 +16,7 @@ function ProfessionalPortfolio() {
         <FeaturedProject />
         <OtherProjects />
         <Contributions />
-        <Education />
+        <Experience />
         <Contact />
         <Footer />
       </main>

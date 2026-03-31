@@ -18,7 +18,7 @@ export default function SectionContainer({
   return (
     <section
       id={id}
-      className={`snap-start min-h-screen flex flex-col items-center justify-start pt-24 px-6  ${className}`}
+      className={`min-h-screen flex flex-col items-center justify-start pt-20 px-6 ${className}`}
     >
       {/* Title Block */}
 

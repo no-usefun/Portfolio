@@ -4,9 +4,13 @@ import profile from "../../assets/profile.png";
 
 export default function Hero() {
   const openResume = () => window.open("/resume.pdf", "_blank");
+  const openGitHub = () =>
+    window.open("https://github.com/no-usefun", "_blank");
+  const openLinkedIn = () =>
+    window.open("https://www.linkedin.com/in/no-usefun", "_blank");
 
   return (
-    <SectionContainer id="Hero" className="bg-neutral-950 text-white">
+    <SectionContainer id="Hero" className="bg-neutral-950 text-white pt-35">
       <div className="relative mt-12 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center px-6">
         {/* LEFT CONTENT */}
         <div>
@@ -28,10 +32,10 @@ export default function Hero() {
             <Button variant="outline" onClick={openResume}>
               View Resume
             </Button>
-            <Button variant="outline" onClick={openResume}>
+            <Button variant="outline" onClick={openGitHub}>
               GitHub
             </Button>
-            <Button variant="outline" onClick={openResume}>
+            <Button variant="outline" onClick={openLinkedIn}>
               LinkdIn
             </Button>
           </div>
