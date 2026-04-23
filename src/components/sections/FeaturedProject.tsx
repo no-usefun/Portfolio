@@ -101,10 +101,10 @@ export default function FeaturedProjects() {
                     onClick={() => setActiveProject(project)}
                     transition={{ type: "spring", stiffness: 220, damping: 26 }}
                     animate={{
-                      maxWidth: isExpanded ? 350 : 800,
+                      maxWidth: isExpanded ? 330 : 700,
                       minWidth: isExpanded ? 350 : "100%",
                     }}
-                    className={`cursor-pointer rounded-xl border border-neutral-800 
+                    className={`group relative cursor-pointer rounded-xl border border-neutral-800 
                   bg-gradient-to-r from-neutral-900 to-neutral-800 
                   p-6 shadow-lg shadow-black/30 overflow-hidden 
                   ${
@@ -131,10 +131,21 @@ export default function FeaturedProjects() {
                         </span>
                       ))}
                     </div>
-
-                    <div className="text-blue-400 text-sm font-medium">
-                      Click to expand →
-                    </div>
+                    {!activeProject && (
+                      <div className="absolute bottom-3 right-3 pointer-events-none">
+                        <span
+                          className="pointer-events-auto inline-flex items-center gap-1 px-3 py-1.5 rounded-md
+      bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-medium
+      transition-all duration-200 shadow-[0_0_8px_rgba(59,130,246,0.12)]
+      group-hover:bg-blue-500/20 group-hover:border-blue-400 group-hover:text-blue-300"
+                        >
+                          Explore
+                          <span className="transition-transform duration-200 group-hover:translate-x-1">
+                            →
+                          </span>
+                        </span>
+                      </div>
+                    )}
                   </motion.div>
                 );
               })}
