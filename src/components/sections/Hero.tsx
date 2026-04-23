@@ -3,7 +3,11 @@ import SectionContainer from "../ui/SectionContainer";
 import profile from "../../assets/profile.png";
 
 export default function Hero() {
-  const openResume = () => window.open("/resume.pdf", "_blank");
+  const openResume = () =>
+    window.open(
+      "https://drive.google.com/file/d/1TknPfHJ-_HcuhUMT66Lm5Xff-pByomjT/view?usp=sharing",
+      "_blank",
+    );
   const openGitHub = () =>
     window.open("https://github.com/no-usefun", "_blank");
   const openLinkedIn = () =>
@@ -19,13 +23,15 @@ export default function Hero() {
           </h1>
 
           <h2 className="mt-4 text-xl md:text-2xl text-blue-400 font-semibold">
-            Software Development Engineer
+            Software Engineer | Backend & Data Structures
           </h2>
 
           <p className="mt-6 text-neutral-400 leading-relaxed max-w-xl">
-            Focused on building scalable backend systems with strong foundations
-            in Data Structures, Algorithms, and system design. Passionate about
-            writing clean, efficient, and maintainable code.
+            Focused on building efficient software with strong foundations in
+            data structures, algorithms, and backend development.
+          </p>
+          <p className="mt-2 text-neutral-400 leading-relaxed max-w-xl">
+            170+ DSA problems solved • 5+ projects built
           </p>
 
           <div className="mt-8 flex gap-4">

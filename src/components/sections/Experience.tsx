@@ -8,23 +8,6 @@ function Experience() {
 
   const experiences = [
     {
-      id: "freelance",
-      role: "Freelance Web Developer",
-      company: "Private Client",
-      type: "Freelance",
-      duration: "Mar 2026 – Present",
-      points: [
-        "Designing and developing a responsive product showcase website using React and Tailwind CSS",
-        "Building a structured interface for displaying company products with clear navigation",
-        "Implementing an inquiry system for clients to submit product-related requests",
-        "Collaborating with the client to translate business requirements into UI/UX solutions",
-        "Deploying the application and refining features based on ongoing feedback",
-      ],
-      tech: ["React", "Tailwind CSS", "JavaScript"],
-      status: "Current",
-      highlight: true,
-    },
-    {
       id: "walmart",
       role: "Advanced Software Engineering",
       company: "Walmart USA (Forage)",
@@ -81,7 +64,7 @@ function Experience() {
         variants={container}
         initial="hidden"
         animate={isInView ? "show" : "hidden"}
-        className="w-full max-w-6xl mx-auto mt-6 grid md:grid-cols-3 gap-6 items-stretch"
+        className="w-full max-w-6xl mx-auto mt-6 grid md:grid-cols-2 gap-6 items-stretch"
       >
         {experiences.map((exp) => (
           <motion.div
@@ -89,11 +72,7 @@ function Experience() {
             variants={cardVariant}
             className={`h-full rounded-xl border p-6 flex flex-col gap-4 transition-all duration-300
               hover:-translate-y-1 hover:shadow-xl
-              ${
-                exp.highlight
-                  ? "border-blue-500/40 bg-gradient-to-br from-neutral-900 to-blue-950/20 hover:shadow-blue-500/15 hover:border-blue-400/60"
-                  : "border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-800 hover:shadow-blue-500/10 hover:border-neutral-700"
-              }`}
+              ${"border-neutral-800 bg-gradient-to-br from-neutral-900 to-neutral-800 hover:shadow-blue-500/10 hover:border-neutral-700"}`}
           >
             {/* HEADER */}
             <div>
@@ -109,16 +88,6 @@ function Experience() {
                 <span className="text-xs px-2 py-0.5 rounded-md bg-neutral-800 text-neutral-400 border border-neutral-700">
                   {exp.type}
                 </span>
-
-                {exp.status && (
-                  <span className="inline-flex items-center gap-1.5 text-xs text-green-400">
-                    <span className="relative flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-400" />
-                    </span>
-                    Currently Working
-                  </span>
-                )}
               </div>
             </div>
 
