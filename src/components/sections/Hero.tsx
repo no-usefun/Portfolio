@@ -1,6 +1,7 @@
 import Button from "../ui/Button";
 import SectionContainer from "../ui/SectionContainer";
 import profile from "../../assets/profile.png";
+import ScrambleText from "../ui/ScrambledText";
 
 export default function Hero() {
   const openResume = () =>
@@ -14,13 +15,14 @@ export default function Hero() {
     window.open("https://www.linkedin.com/in/no-usefun", "_blank");
 
   return (
-    <SectionContainer id="hero" className="bg-neutral-950 text-white pt-20">
+    <SectionContainer
+      id="hero"
+      className="bg-neutral-950 snap text-white mt-12 pt-30"
+    >
       <div className="relative mt-12 max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center px-6">
         {/* LEFT CONTENT */}
         <div>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
-            Harsh Agarwal
-          </h1>
+          <ScrambleText text="Harsh Agarwal" />
 
           <h2 className="mt-4 text-xl md:text-2xl text-blue-400 font-semibold">
             Software Engineer | Backend & Data Structures
@@ -31,7 +33,7 @@ export default function Hero() {
             data structures, algorithms, and backend development.
           </p>
           <p className="mt-2 text-neutral-400 leading-relaxed max-w-xl">
-            170+ DSA problems solved • 5+ projects built
+            250+ DSA problems solved • 5+ projects built
           </p>
 
           <div className="mt-8 flex gap-4">

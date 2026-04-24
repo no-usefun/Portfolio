@@ -18,7 +18,7 @@ export default function SectionContainer({
   return (
     <section
       id={id}
-      className={`min-h-[calc(100vh-10px)] flex flex-col items-center justify-start scroll-mt-20 px-6 ${className}`}
+      className={`h-[calc(100vh)] flex flex-col items-center justify-start scroll-mt-20 px-6 ${className}`}
     >
       {/* Title Block */}
 

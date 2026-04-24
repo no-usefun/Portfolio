@@ -1,5 +1,4 @@
 import SectionContainer from "../ui/SectionContainer";
-import Footer from "../layout/Footer";
 import { MdEmail, MdOpenInNew } from "react-icons/md";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -107,8 +106,6 @@ function Contact() {
           </div>
         </div>
       </SectionContainer>
-
-      <Footer />
     </>
   );
 }
